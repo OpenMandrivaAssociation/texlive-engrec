@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/engrec
+# catalog-date 2008-05-07 22:48:57 +0200
+# catalog-license lppl
+# catalog-version 1.1
 Name:		texlive-engrec
 Version:	1.1
 Release:	1
@@ -48,6 +54,7 @@ upgreek and fourier packages. Requires amstext.
 %doc %{_texmfdistdir}/source/latex/engrec/Makefile
 %doc %{_texmfdistdir}/source/latex/engrec/engrec.dtx
 %doc %{_texmfdistdir}/source/latex/engrec/engrec.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -58,3 +65,5 @@ upgreek and fourier packages. Requires amstext.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
