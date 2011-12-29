@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 This package provides two macros \engrec and \EnGrec to convert
@@ -29,20 +26,12 @@ They have the syntax of \alph, i.e. \engrec{a_counter},
 \EnGrec{a_counter}. Options are provided to work with the
 upgreek and fourier packages. Requires amstext.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -55,7 +44,6 @@ upgreek and fourier packages. Requires amstext.
 %doc %{_texmfdistdir}/source/latex/engrec/Makefile
 %doc %{_texmfdistdir}/source/latex/engrec/engrec.dtx
 %doc %{_texmfdistdir}/source/latex/engrec/engrec.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -66,5 +54,3 @@ upgreek and fourier packages. Requires amstext.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
