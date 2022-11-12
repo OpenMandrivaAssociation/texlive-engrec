@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/engrec
-# catalog-date 2008-05-07 22:48:57 +0200
-# catalog-license lppl
-# catalog-version 1.1
 Name:		texlive-engrec
-Version:	1.1
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Enumerate with lower- or uppercase Greek letters
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/engrec
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ They have the syntax of \alph, i.e. \engrec{a_counter},
 upgreek and fourier packages. Requires amstext.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -47,24 +41,11 @@ upgreek and fourier packages. Requires amstext.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.1-2
-+ Revision: 751469
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1-1
-+ Revision: 718335
-- texlive-engrec
-- texlive-engrec
-- texlive-engrec
-- texlive-engrec
-
