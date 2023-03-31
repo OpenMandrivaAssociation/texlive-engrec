@@ -1,6 +1,6 @@
 Name:		texlive-engrec
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Enumerate with lower- or uppercase Greek letters
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/engrec
