@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Enumerate with lower- or uppercase Greek letters
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/engrec
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/engrec
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/engrec.doc.r%{version}.tar.xz
